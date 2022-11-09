@@ -8,6 +8,7 @@ import HomeScreen from './src/HomeScreen';
 import ParentScreen from './src/ParentScreen';
 import ChildScreen from './src/Option';
 import SignupScreen from './src/SignupScreen';
+import AddDstScreen from './src/View';
 //import apikeys from 'firebase.js';
 
 const Stack = createNativeStackNavigator();
@@ -21,6 +22,7 @@ export default function App() {
         <Stack.Screen options={{ headerShown: false }} name="Parent" component={ParentScreen} />
         <Stack.Screen options={{ headerShown: false }} name="Child" component={ChildScreen} />
         <Stack.Screen options={{ headerShown: false }} name="Signup" component={SignupScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="addDestination" component={AddDstScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

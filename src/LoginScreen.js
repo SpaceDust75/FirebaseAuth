@@ -24,7 +24,7 @@ const LoginScreen = () => {
 
   const handleSignUp = () => {
     auth
-    navigation.replace("Signup")
+    navigation.navigate("Signup")
   }
 
   const handleLogin = () => {

@@ -1,10 +1,19 @@
 import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/core'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const MiddleButton = (props) => {
+    const navigation = useNavigation()
+  const Stack = createNativeStackNavigator();
+
+  const addDestination = () => {
+    navigation.navigate("addDestination")
+  }
+
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.touch} onPress={() => alert('맵 넣을 것')}>
+            <TouchableOpacity style={styles.touch} onPress={addDestination}>
                 <View style={styles.button1}>
                     <Text style={styles.text1}>목적지</Text>
                     <Text style={styles.text2}>내려야할곳</Text>

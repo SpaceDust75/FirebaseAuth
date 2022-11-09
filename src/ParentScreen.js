@@ -26,7 +26,7 @@ const ParentScreen = () => {
         <View View style={styles.container} >
             <View style={styles.header}>
                 <View style={styles.headertext}>
-                    <Text style={styles.text}>###님의 보호자 ###</Text>
+                    <Text style={styles.text}>보호자 화면</Text>
                 </View>
                 <View style={styles.headericon}>
                     <TouchableOpacity style={styles.reloadicon}>
