@@ -1,42 +1,36 @@
 // import { useNavigation } from '@react-navigation/core'
+import { useNavigation } from '@react-navigation/core'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react'
-import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image} from 'react-native'
+import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native'
+import { auth } from '../firebase'
 
 const SignupScreen = () => {
-   const [email, setEmail] = useState('')
-   const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-//   const navigation = useNavigation()
+  const navigation = useNavigation()
+  const Stack = createNativeStackNavigator();
 
-//   useEffect(() => {
-//     const unsubscribe = auth.onAuthStateChanged(user => {
-//       if (user) {
-//         navigation.replace("Home")
-//       }
-//     })
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        navigation.replace("Home")
+      }
+    })
 
-//     return unsubscribe
-//   }, [])
+    return unsubscribe
+  }, [])
 
-//   const handleSignUp = () => {
-//     auth
-//       .createUserWithEmailAndPassword(email, password)
-//       .then(userCredentials => {
-//         const user = userCredentials.user;
-//         console.log('Registered with:', user.email);
-//       })
-//       .catch(error => alert(error.message))
-//   }
-
-//   const handleLogin = () => {
-//     auth
-//       .signInWithEmailAndPassword(email, password)
-//       .then(userCredentials => {
-//         const user = userCredentials.user;
-//         console.log('Logged in with:', user.email);
-//       })
-//       .catch(error => alert(error.message))
-//   }
+  const handleSignUp = () => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Registered with:', user.email);
+      })
+      .catch(error => alert(error.message))
+  }
 
   return (
     <KeyboardAvoidingView
@@ -67,6 +61,7 @@ const SignupScreen = () => {
         />
         <TouchableOpacity
           style={styles.button}
+          onPress={handleSignUp}
         >
           <Text style={styles.buttonText}>등록하기</Text>
         </TouchableOpacity>
@@ -79,13 +74,13 @@ export default SignupScreen
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor:'#D3D3D3',
+    backgroundColor: '#D3D3D3',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   input: {
-    width:'90%',
+    width: '90%',
     backgroundColor: 'white',
     paddingHorizontal: 15,
     paddingVertical: 10,
@@ -121,21 +116,21 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
   },
-  box:{
-    backgroundColor:'#FF8730',
-    width:'80%',
-    height:'70%',
-    alignItems:'center',
+  box: {
+    backgroundColor: '#FF8730',
+    width: '80%',
+    height: '70%',
+    alignItems: 'center',
     padding: 15,
     borderRadius: 10,
     marginBottom: 15,
   },
   boxText: {
     marginTop: 50,
-    marginBottom:50,
+    marginBottom: 50,
     color: 'white',
     fontSize: 71,
-    fontWeight:'bold',
-    textAlign:'center',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 })

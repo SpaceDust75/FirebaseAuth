@@ -1,14 +1,14 @@
 import { useNavigation } from '@react-navigation/core'
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-// import MiddleButton from './src/MiddleButton';
+import MiddleButton from './Middlebutton';
 
 const ParentScreen = () => {
     const navigation = useNavigation()
     return (
         <View style={styles.container}>
             <Text style={styles.text}>###님의 보호자 ###</Text>
-            {/* <MiddleButton /> */}
+            <MiddleButton />
         </View>
     );
 }

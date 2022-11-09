@@ -11,6 +11,14 @@ const HomeScreen = () => {
   const navigation = useNavigation()
   const Stack = createNativeStackNavigator();
 
+  const selectParent = () => {
+    navigation.replace("Parent")
+  }
+
+  const selectChild = () => {
+    navigation.replace("Child")
+  }
+
   const handleSignOut = () => {
     auth
       .signOut()
@@ -30,13 +38,13 @@ const HomeScreen = () => {
 
             <View style={styles.buttonContainer}>
               <TouchableOpacity
-                style={styles.Selectbutton} onPress={() => navigation.navigate('ParentScreen')}
+                style={styles.Selectbutton} onPress={selectParent}
               >
                 <MaterialCommunityIcons name="human-male-female-child" size={80} color="black" />
                 <Text style={styles.Text}>보호자</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                style={styles.Selectbutton} onPress={() => navigation.navigate('ChildScreen')}
+                style={styles.Selectbutton} onPress={selectChild}
               >
                 <View style={styles.Box}>
                   <View style={styles.align}>
