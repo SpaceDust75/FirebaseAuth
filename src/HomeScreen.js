@@ -12,18 +12,18 @@ const HomeScreen = () => {
   const Stack = createNativeStackNavigator();
 
   const selectParent = () => {
-    navigation.replace("Parent")
+    navigation.navigate("Parent")
   }
 
   const selectChild = () => {
-    navigation.replace("Child")
+    navigation.navigate("Child")
   }
 
   const handleSignOut = () => {
     auth
       .signOut()
       .then(() => {
-        navigation.replace("Login")
+        navigation.navigate("Login")
       })
       .catch(error => alert(error.message))
   }
@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 40,
   },
-
   // Box: {
   //   backgroundColor: '#FF8730',
   //   height: 200,
