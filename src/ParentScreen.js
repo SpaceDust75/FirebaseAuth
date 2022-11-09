@@ -29,10 +29,10 @@ const ParentScreen = () => {
                     <Text style={styles.text}>###님의 보호자 ###</Text>
                 </View>
                 <View style={styles.headericon}>
-                    <TouchableOpacity style={styles.reloadicon} onPress={handleSignOut}>
+                    <TouchableOpacity style={styles.reloadicon}>
                         <AntDesign name="reload1" size={30} color="black" style={{ color: '#4D4A4A', paddingTop: 47 }} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.logouticon}>
+                    <TouchableOpacity style={styles.logouticon} onPress={handleSignOut}>
                         <AntDesign name="logout" size={28} color="black" style={{ color: '#4D4A4A', paddingRight: 25, paddingLeft: 20, paddingTop: 49 }} />
                     </TouchableOpacity>
                 </View>
