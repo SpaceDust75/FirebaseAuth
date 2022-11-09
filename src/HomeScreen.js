@@ -56,13 +56,6 @@ const HomeScreen = () => {
             </View>
           </View>
         </View>
-
-  <TouchableOpacity
-        onPress={handleSignOut}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>Sign out</Text>
-      </TouchableOpacity>
     </View>
   )
 }

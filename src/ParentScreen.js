@@ -1,33 +1,44 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/core'
 import { RefreshControl, SafeAreaView, ScrollView, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import MiddleButton from './Middlebutton';
-import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { withSafeAreaInsets } from 'react-native-safe-area-context';
+import { auth } from '../firebase'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const wait = (timeout) => {
-    return new Promise(resolve => setTimeout(resolve, timeout));
-}
+
 
 const ParentScreen = () => {
+    const navigation = useNavigation()
+    const Stack = createNativeStackNavigator();
+    const handleSignOut = () => {
+        auth
+            .signOut()
+            .then(() => {
+                navigation.navigate("Login")
+            })
+            .catch(error => alert(error.message))
+    }
     return (
-        
-            <View View style={styles.container} >
-                    <View style={styles.header}>
-                        <View style={styles.headertext}>
-                            <Text style={styles.text}>###님의 보호자 ###</Text>
-                        </View>
-                        <View style={styles.headericon}>
-                            <TouchableOpacity style={styles.reloadicon}>
-                                <AntDesign name="reload1" size={30} color="black" style={{ color: '#4D4A4A', paddingTop: 47 }} />
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.logouticon}>
-                                <AntDesign name="logout" size={28} color="black" style={{ color: '#4D4A4A', paddingRight: 25, paddingLeft: 20, paddingTop: 49 }} />
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                    <MiddleButton />
-            </View >
+
+        <View View style={styles.container} >
+            <View style={styles.header}>
+                <View style={styles.headertext}>
+                    <Text style={styles.text}>###님의 보호자 ###</Text>
+                </View>
+                <View style={styles.headericon}>
+                    <TouchableOpacity style={styles.reloadicon} onPress={handleSignOut}>
+                        <AntDesign name="reload1" size={30} color="black" style={{ color: '#4D4A4A', paddingTop: 47 }} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.logouticon}>
+                        <AntDesign name="logout" size={28} color="black" style={{ color: '#4D4A4A', paddingRight: 25, paddingLeft: 20, paddingTop: 49 }} />
+                    </TouchableOpacity>
+                </View>
+            </View>
+            <MiddleButton />
+        </View >
     );
 }
 
