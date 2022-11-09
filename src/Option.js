@@ -3,7 +3,8 @@ import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import BigButton from './Bigbutton';
 import { Ionicons } from '@expo/vector-icons';
 
-const Op = () => {
+const Op = (props) => {
+  console.log(props.route.params);
     return(
         <View style={styles.container}>
             <View style={styles.header}>

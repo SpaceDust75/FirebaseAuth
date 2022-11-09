@@ -3,16 +3,17 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import MiddleButton from './Middlebutton';
 import { Ionicons } from '@expo/vector-icons';
 
-const ParentScreen = () => {
+const ParentScreen = (props) => {
+    console.log(props.route.params.state);
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.text}>###님의 보호자 ###</Text>
+                <Text style={styles.text}>{props.route.params.state}</Text>
                 <TouchableOpacity>
                     <Ionicons style={styles.icon} name="settings" size={35} color="black" />
                 </TouchableOpacity>
             </View>
-            <MiddleButton />
+            <MiddleButton state={props.route.params.state} />
         </View>
     );
 }

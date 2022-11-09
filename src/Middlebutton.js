@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 
-const MiddleButton = () => {
+const MiddleButton = (props) => {
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.touch} onPress={() => alert('맵 넣을 것')}>

@@ -12,11 +12,12 @@ const HomeScreen = () => {
   const Stack = createNativeStackNavigator();
 
   const selectParent = () => {
-    navigation.replace("Parent")
+    navigation.navigate("Parent",{ state: '부모' })
   }
 
+
   const selectChild = () => {
-    navigation.replace("Child")
+    navigation.navigate("Parent",{ state: '자녀' })
   }
 
   const handleSignOut = () => {
