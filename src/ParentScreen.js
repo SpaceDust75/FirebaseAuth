@@ -10,7 +10,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 
-const ParentScreen = () => {
+const ParentScreen = (props) => {
+    console.log(props.route.params);
     const navigation = useNavigation()
     const Stack = createNativeStackNavigator();
     const handleSignOut = () => {
@@ -26,7 +27,7 @@ const ParentScreen = () => {
         <View View style={styles.container} >
             <View style={styles.header}>
                 <View style={styles.headertext}>
-                    <Text style={styles.text}>###님의 보호자 ###</Text>
+                    <Text style={styles.text}>{props.route.params}</Text>
                 </View>
                 <View style={styles.headericon}>
                     <TouchableOpacity style={styles.reloadicon}>
