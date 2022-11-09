@@ -11,6 +11,7 @@ const Op = (props) => {
                 <Text style={styles.text}>###님의 자녀 ###</Text>
                 <TouchableOpacity>
                 <Ionicons style={styles.icon} name="settings" size={35} color="black" />
+                <Ionicons style={styles.icon} name="settings" size={35} color="black" />
                 </TouchableOpacity>
             </View>
             <BigButton />

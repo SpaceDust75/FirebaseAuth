@@ -1,42 +1,74 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/core'
+import { RefreshControl, SafeAreaView, ScrollView, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import MiddleButton from './Middlebutton';
-import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import { auth } from '../firebase'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const ParentScreen = (props) => {
-    console.log(props.route.params.state);
+
+
+const ParentScreen = () => {
+    const navigation = useNavigation()
+    const Stack = createNativeStackNavigator();
+    const handleSignOut = () => {
+        auth
+            .signOut()
+            .then(() => {
+                navigation.navigate("Login")
+            })
+            .catch(error => alert(error.message))
+    }
     return (
-        <View style={styles.container}>
+
+        <View View style={styles.container} >
             <View style={styles.header}>
-                <Text style={styles.text}>{props.route.params.state}</Text>
-                <TouchableOpacity>
-                    <Ionicons style={styles.icon} name="settings" size={35} color="black" />
-                </TouchableOpacity>
+                <View style={styles.headertext}>
+                    <Text style={styles.text}>###님의 보호자 ###</Text>
+                </View>
+                <View style={styles.headericon}>
+                    <TouchableOpacity style={styles.reloadicon} onPress={handleSignOut}>
+                        <AntDesign name="reload1" size={30} color="black" style={{ color: '#4D4A4A', paddingTop: 47 }} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.logouticon}>
+                        <AntDesign name="logout" size={28} color="black" style={{ color: '#4D4A4A', paddingRight: 25, paddingLeft: 20, paddingTop: 49 }} />
+                    </TouchableOpacity>
+                </View>
             </View>
-            <MiddleButton state={props.route.params.state} />
-        </View>
+            <MiddleButton />
+        </View >
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#D3D3D3',
+        backgroundColor: '#F3F3F3',
         flex: 1,
     },
-    text: {
-        marginLeft: 20,
-        marginTop: 50,
-        fontSize: 28,
-        color: 'black',
-    },
-    icon: {
-        marginRight: 20,
-        marginTop: 50,
-    },
     header: {
+        alignItems: 'center',
+        justifyContent: 'flex-start',
         flexDirection: 'row',
-        justifyContent: 'space-between',
-    }
+        paddingTop: 20,
+    },
+    headertext: {
+        flex: 4,
+        paddingleft: 10,
+    },
+    headericon: {
+        flex: 2,
+        justifyContent: 'flex-end',
+        flexDirection: 'row'
+    },
+    text: {
+        marginLeft: 25,
+        marginTop: 50,
+        fontSize: 24,
+        color: '#4D4A4A',
+    },
+
 })
 
 export default ParentScreen;

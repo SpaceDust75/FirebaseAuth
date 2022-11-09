@@ -24,7 +24,7 @@ const HomeScreen = () => {
     auth
       .signOut()
       .then(() => {
-        navigation.replace("Login")
+        navigation.navigate("Login")
       })
       .catch(error => alert(error.message))
   }
@@ -57,13 +57,6 @@ const HomeScreen = () => {
             </View>
           </View>
         </View>
-
-  <TouchableOpacity
-        onPress={handleSignOut}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>Sign out</Text>
-      </TouchableOpacity>
     </View>
   )
 }
@@ -86,7 +79,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 40,
   },
-
   // Box: {
   //   backgroundColor: '#FF8730',
   //   height: 200,
