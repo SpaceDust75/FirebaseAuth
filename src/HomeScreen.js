@@ -11,12 +11,12 @@ const HomeScreen = () => {
   const navigation = useNavigation()
   const Stack = createNativeStackNavigator();
 
-  const selectParent = () => {
+  const selectParent = (props) => {
     navigation.navigate("Parent",'부모' )
   }
 
 
-  const selectChild = () => {
+  const selectChild = (props) => {
     navigation.navigate("Parent",'자녀' )
   }
 

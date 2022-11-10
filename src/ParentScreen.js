@@ -7,6 +7,9 @@ import { auth } from '../firebase'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import NfcManager, {NfcTech} from 'react-native-nfc-manager';
+
+NfcManager.start();
 
 
 
@@ -18,10 +21,12 @@ const ParentScreen = (props) => {
         auth
             .signOut()
             .then(() => {
-                navigation.navigate("Login")
+                navigation.navigate("Login",)
             })
             .catch(error => alert(error.message))
     }
+    
+
     return (
 
         <View View style={styles.container} >

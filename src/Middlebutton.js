@@ -5,11 +5,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const MiddleButton = (props) => {
     const navigation = useNavigation()
-  const Stack = createNativeStackNavigator();
+    const Stack = createNativeStackNavigator();
 
-  const addDestination = () => {
-    navigation.navigate("addDestination")
-  }
+    const addDestination = () => {
+        navigation.navigate("addDestination", )
+    }
 
     return (
         <View style={styles.container}>
@@ -34,13 +34,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 1,
     },
-    touch:{
-        width:'90%',
-        height:'35%',
+    touch: {
+        width: '90%',
+        height: '35%',
         margin: '10%'
     },
-    button1:{
-        flex:3,
+    button1: {
+        flex: 3,
         justifyContent: 'center',
         backgroundColor: '#FFFFFF',
         marginTop: 10,
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         marginTop: 120,
     },
     text1: {
-        flex:1,
+        flex: 1,
         justifycontent: 'flex-start',
         paddingTop: 20,
         paddingLeft: 20,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         color: '#FF8730',
     },
     text2: {
-        flex:2,
+        flex: 2,
         textAlign: 'center',
         paddingLeft: 20,
         paddingTop: 20,

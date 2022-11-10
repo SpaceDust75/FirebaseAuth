@@ -9,7 +9,7 @@ import ParentScreen from './src/ParentScreen';
 import ChildScreen from './src/Option';
 import SignupScreen from './src/SignupScreen';
 import AddDstScreen from './src/View';
-//import apikeys from 'firebase.js';
+import NFCScreen from './src/NFCtest'
 
 const Stack = createNativeStackNavigator();
 
